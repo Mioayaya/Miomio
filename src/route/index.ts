@@ -7,7 +7,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/home',
-    component: () => import('../views/home/HomeView.vue'),    
+    component: () => import('../views/home/MioHomeView.vue'),    
   },
   {
     path: '/test',
