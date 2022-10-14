@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import HomeView from './views/home/HomeView.vue';
+import HelloWorld from '../../components/HelloWorld.vue';
 
 </script>
 
 <template>
-  <div class="App">
-    <HomeView />
+  <div class="home">
+    <HelloWorld />
   </div>
+
 </template>
 
 <style lang="less" scoped>
