@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import HomeView from './views/home/HomeView.vue';
 
 </script>
 
 <template>
   <div class="App">
-    <HomeView />
+    <!-- <HomeView /> -->
+    <router-link to="/home">首页</router-link>
+    <router-link to="/test">测试</router-link>
+    <router-view />
   </div>
 </template>
 

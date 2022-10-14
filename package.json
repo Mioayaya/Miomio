@@ -7,11 +7,13 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint":"eslint src/**/*.{js,jsx,vue,ts,tsx} --fix"
+    "lint": "eslint src/**/*.{js,jsx,vue,ts,tsx} --fix"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "less": "^4.1.3",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.40.0",
