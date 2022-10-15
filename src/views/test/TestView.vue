@@ -1,12 +1,12 @@
 <script setup lang="ts">
+import MioMenu from './components/MioMenu.vue';
 
 </script>
 
 <template>
   <div class="test">
     <h2>test -- 页面</h2>
-    <router-link to="/test/test1">test1</router-link>
-    <router-link to="/test/test2">test2</router-link>
+    <mio-menu />
     <router-view />
   </div>
 </template>

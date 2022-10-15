@@ -10,5 +10,14 @@
 </template>
 
 <style lang="less" scoped>
-
+@import '../../common/css/common.less';
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: @HEADERheight;
+  z-index: 1;
+  background-color: red;
+}
 </style>
