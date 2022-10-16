@@ -78,7 +78,6 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -86,17 +85,79 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
   height: @HEADERheight;
   z-index: 1;
   background-color: #f0cccc;
-}
-.left {
-  .left-item {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    span {
-      padding: 0 6px;
+  .left {
+    .left-item {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      span {
+        padding: 0 6px;
+      }
+    }
+  }
+  .center {
+    padding: 0 20px;
+    #nav-searchform {
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 40px;
+      padding: 0 48px 0 4px;
+      border: 1px solid #f1f2f3;
+      background-color: #f1f2f3;
+      border-radius: 8px;
+      opacity: 0.6;
+    }
+    .nav-search-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      height: 32px;
+      padding: 0 8px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+    }
+    .nav-search-input {
+      padding-right: 8px;
+      border: none;
+      background-color: #f1f2f3;
+    }
+    .nav-search-btn {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+    }
+  }
+  .right {
+    ul li {
+      padding: 0 10px;
+    }
+    .box {
+      width: 36px;
+      height: 36px;
+      background-color: #00aeec;
+      color: white;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 50%;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .contribution {
+      padding: 6px 16px;
+      background-color: #fb7299;
+      border-radius: 8px;
     }
   }
 }
+
 ul {
   display: flex;
   list-style: none;
@@ -109,60 +170,6 @@ span {
   font-size: 13px;
   color: white;
 }
-#nav-searchform {
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 40px;
-  padding: 0 48px 0 4px;
-  border: 1px solid #f1f2f3;
-  background-color: #f1f2f3;
-  border-radius: 8px;
-  opacity: 0.6;
-}
-.nav-search-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 32px;
-  padding: 0 8px;
-  border: 2px solid transparent;
-  border-radius: 8px;
-}
-.nav-search-input {
-  padding-right: 8px;
-  border: none;
-  background-color: #f1f2f3;
-}
-.nav-search-btn {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-}
-.right {
-  .box {
-    width: 36px;
-    height: 36px;
-    background-color: #00aeec;
-    color: white;
-    line-height: 36px;
-    text-align: center;
-    border-radius: 50%;
-  }
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .contribution {
-    padding: 6px 16px;
-    background-color: #fb7299;
-    border-radius: 8px;
-  }
-}
+
 // less的用法 看我写的vue文件
 </style>
