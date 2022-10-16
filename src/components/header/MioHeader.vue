@@ -23,8 +23,10 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
         <!-- 后面 right也是一样 -->
         <li v-for="item in topNavData.leftTitle" :key="item.key">
           <router-link :to="item.path">
-            <mio-icon :title="item.ico" :style="iconStyle" v-if="item.ico" />
-            <span>{{ item.title }}</span>
+            <div class="left-item">
+              <mio-icon :title="item.ico" :style="iconStyle" v-if="item.ico" />
+              <span>{{ item.title }}</span>
+            </div>
           </router-link>
         </li>
       </ul>
@@ -84,15 +86,24 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
   height: @HEADERheight;
   z-index: 1;
   background-color: #f0cccc;
-  // 用了padding 整个页面就撑大了，对于 fixed 来说
-  // 会多一个横向的滚动条
-  // 可以在header里套一个子 div  或者 直接调整 子项目的 margin 来实现间距
 }
-ul li {
-  display: block;
-  float: left;
-  // 为什么用 float ，，， 用 dispaly: flex  重新写一下， 然后用less 的语法，这样写太难受了
-  padding: 6px;
+.left {
+  .left-item {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    span {
+      padding: 0 6px;
+    }
+  }
+}
+ul {
+  display: flex;
+  list-style: none;
+  li {
+    text-align: center;
+    padding: 6px;
+  }
 }
 span {
   font-size: 13px;
@@ -131,26 +142,27 @@ span {
   top: 8px;
   right: 12px;
 }
-.right .box {
-  width: 36px;
-  height: 36px;
-  background-color: #00aeec;
-  color: white;
-  line-height: 36px;
-  text-align: center;
-  border-radius: 50%;
+.right {
+  .box {
+    width: 36px;
+    height: 36px;
+    background-color: #00aeec;
+    color: white;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 50%;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contribution {
+    padding: 6px 16px;
+    background-color: #fb7299;
+    border-radius: 8px;
+  }
 }
-.right .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.right .contribution {
-  padding: 6px 16px;
-  background-color: #fb7299;
-  border-radius: 8px;
-}
-
 // less的用法 看我写的vue文件
 </style>
