@@ -84,7 +84,9 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
   height: @HEADERheight;
   z-index: 1;
   background-color: #f0cccc;
-  padding: 20px;
+  // 用了padding 整个页面就撑大了，对于 fixed 来说
+  // 会多一个横向的滚动条
+  // 可以在header里套一个子 div  或者 直接调整 子项目的 margin 来实现间距
 }
 ul li {
   display: block;
@@ -149,4 +151,6 @@ span {
   background-color: #fb7299;
   border-radius: 8px;
 }
+
+// less的用法 看我写的vue文件
 </style>
