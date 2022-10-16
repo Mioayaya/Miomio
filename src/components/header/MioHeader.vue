@@ -195,10 +195,6 @@ span {
 }
 
 @keyframes mymove {
-  0% {
-    top: 0px;
-    left: 0px;
-  }
   100% {
     transform: translateY(-4px);
   }
