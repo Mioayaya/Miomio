@@ -1,26 +1,82 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
-import { styles } from '../../type';
-import MioIcon from '../icon/MioIcon.vue';
-const iconStyle:Ref<styles.Mstyles> = ref<styles.Mstyles>({
-  width: '20px',
-  height: '20px'
-})
-
+import { Ref, ref } from "vue";
+import { topNavData } from "../../server";
+import { styles } from "../../type";
+import MioIcon from "../icon/MioIcon.vue";
+const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
+  width: "20px",
+  height: "20px",
+});
+// 先 leftTitle这种本地数据统一放入 loca-data里
+// 直接 import 导入 使用就可以了
 </script>
 
 <template>
   <div class="header">
-    <router-link to="/home">home</router-link>
-    <router-link to="/test">test</router-link>
-    <mio-icon title="#icon-bilibili1" :style="iconStyle"/>
-    <mio-icon title="#icon-bilibili" />
+    <!-- <router-link to="/home">home</router-link>
+    <router-link to="/test">test</router-link> -->
+    <!-- <mio-icon title="#icon-bilibili" /> -->
+    <div class="left">
+      <ul>
+        <!-- 这其实每一个都是一个链接 -->
+        <!-- key 不要用 index  -->
+        <!-- 后面 right也是一样 -->
+        <li v-for="item in topNavData.leftTitle" :key="item.key">
+          <router-link :to="item.path">
+            <mio-icon :title="item.ico" :style="iconStyle" v-if="item.ico" />
+            <span>{{ item.title }}</span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+    <div class="center">
+      <form action="" id="nav-searchform">
+        <div class="nav-search-content">
+          <input
+            type="text"
+            placeholder="游戏是怎样掏空你钱包的？"
+            class="nav-search-input"
+          />
+        </div>
+        <div class="nav-search-btn">
+          <mio-icon title="#icon-sousuo" :style="iconStyle" />
+        </div>
+      </form>
+    </div>
+    <div class="right">
+      <ul>
+        <li>
+          <a href="#">
+            <div class="box">
+              <span>登录</span>
+            </div>
+          </a>
+        </li>
+        <li v-for="(item, index) in topNavData.rightTitle" :key="index">
+          <a href="#">
+            <div class="container">
+              <mio-icon :title="item.ico" :style="iconStyle" v-if="item.ico" />
+              <span>{{ item.title }}</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <div class="contribution">
+            <mio-icon title="#icon-shangchuan" :style="iconStyle" />
+            <span>投稿</span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-@import '../../common/css/common.less';
+@import "../../common/css/common.less";
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -28,5 +84,69 @@ const iconStyle:Ref<styles.Mstyles> = ref<styles.Mstyles>({
   height: @HEADERheight;
   z-index: 1;
   background-color: #f0cccc;
+  padding: 20px;
+}
+ul li {
+  display: block;
+  float: left;
+  // 为什么用 float ，，， 用 dispaly: flex  重新写一下， 然后用less 的语法，这样写太难受了
+  padding: 6px;
+}
+span {
+  font-size: 13px;
+  color: white;
+}
+#nav-searchform {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 40px;
+  padding: 0 48px 0 4px;
+  border: 1px solid #f1f2f3;
+  background-color: #f1f2f3;
+  border-radius: 8px;
+  opacity: 0.6;
+}
+.nav-search-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 32px;
+  padding: 0 8px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+}
+.nav-search-input {
+  padding-right: 8px;
+  border: none;
+  background-color: #f1f2f3;
+}
+.nav-search-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+.right .box {
+  width: 36px;
+  height: 36px;
+  background-color: #00aeec;
+  color: white;
+  line-height: 36px;
+  text-align: center;
+  border-radius: 50%;
+}
+.right .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.right .contribution {
+  padding: 6px 16px;
+  background-color: #fb7299;
+  border-radius: 8px;
 }
 </style>
