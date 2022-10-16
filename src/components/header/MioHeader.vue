@@ -7,15 +7,10 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
   width: "20px",
   height: "20px",
 });
-// 先 leftTitle这种本地数据统一放入 loca-data里
-// 直接 import 导入 使用就可以了
 </script>
 
 <template>
   <div class="header">
-    <!-- <router-link to="/home">home</router-link>
-    <router-link to="/test">test</router-link> -->
-    <!-- <mio-icon title="#icon-bilibili" /> -->
     <div class="left">
       <ul>
         <!-- 这其实每一个都是一个链接 -->
@@ -55,7 +50,7 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
           </a>
         </li>
         <li v-for="(item, index) in topNavData.rightTitle" :key="index">
-          <a href="#">
+          <router-link :to="item.path">
             <div class="container">
               <mio-icon
                 :title="item.ico"
@@ -65,7 +60,7 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
               />
               <span>{{ item.title }}</span>
             </div>
-          </a>
+          </router-link>
         </li>
         <li>
           <a href="#">
@@ -171,14 +166,16 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
       align-items: center;
       flex-direction: column;
     }
+    .container:hover {
+      .ico {
+        animation: mymove 0.2s 1;
+        -webkit-animation: mymove 0.2s 1;
+      }
+    }
     .contribution {
       padding: 6px 16px;
       background-color: #fb7299;
       border-radius: 8px;
-    }
-    .ico:hover {
-      animation: mymove 0.2s 1;
-      -webkit-animation: mymove 0.2s 1;
     }
   }
 }
