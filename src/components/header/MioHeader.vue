@@ -57,16 +57,23 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
         <li v-for="(item, index) in topNavData.rightTitle" :key="index">
           <a href="#">
             <div class="container">
-              <mio-icon :title="item.ico" :style="iconStyle" v-if="item.ico" />
+              <mio-icon
+                :title="item.ico"
+                class="ico"
+                :style="iconStyle"
+                v-if="item.ico"
+              />
               <span>{{ item.title }}</span>
             </div>
           </a>
         </li>
         <li>
-          <div class="contribution">
-            <mio-icon title="#icon-shangchuan" :style="iconStyle" />
-            <span>投稿</span>
-          </div>
+          <a href="#">
+            <div class="contribution">
+              <mio-icon title="#icon-shangchuan" :style="iconStyle" />
+              <span>投稿</span>
+            </div>
+          </a>
         </li>
       </ul>
     </div>
@@ -78,6 +85,8 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
 .header {
   display: flex;
   align-items: center;
+  justify-content: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -86,17 +95,25 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
   z-index: 1;
   background-color: #f0cccc;
   .left {
+    display: flex;
+    flex-shrink: 0;
     .left-item {
       display: flex;
       justify-items: center;
       align-items: center;
       span {
-        padding: 0 6px;
+        padding-left: 8px;
+      }
+      span:hover {
+        animation: mymove 0.2s 1;
+        -webkit-animation: mymove 0.2s 1;
       }
     }
   }
   .center {
-    padding: 0 20px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
     #nav-searchform {
       display: flex;
       align-items: center;
@@ -132,7 +149,11 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
     }
   }
   .right {
+    display: flex;
+    flex-shrink: 0;
     ul li {
+      display: flex;
+      align-items: center;
       padding: 0 10px;
     }
     .box {
@@ -155,6 +176,10 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
       background-color: #fb7299;
       border-radius: 8px;
     }
+    .ico:hover {
+      animation: mymove 0.2s 1;
+      -webkit-animation: mymove 0.2s 1;
+    }
   }
 }
 
@@ -167,8 +192,19 @@ ul {
   }
 }
 span {
-  font-size: 13px;
+  font-size: 14px;
   color: white;
+  white-space: nowrap; //设置文字不换行\
+}
+
+@keyframes mymove {
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+  100% {
+    transform: translateY(-4px);
+  }
 }
 
 // less的用法 看我写的vue文件
