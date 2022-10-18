@@ -20,7 +20,7 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
           <router-link :to="item.path">
             <div class="left-item">
               <mio-icon :title="item.ico" :style="iconStyle" v-if="item.ico" />
-              <span>{{ item.title }}</span>
+              <span class="left-item">{{ item.title }}</span>
             </div>
           </router-link>
         </li>
@@ -89,6 +89,7 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
   height: @HEADERheight;
   z-index: 1;
   background-color: #f0cccc;
+  padding: 0 20px;
   .left {
     display: flex;
     flex-shrink: 0;
@@ -96,10 +97,10 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
       display: flex;
       justify-items: center;
       align-items: center;
-      span {
+      .left-item {
         padding-left: 8px;
       }
-      span:hover {
+      .left-item:hover {
         animation: mymove 0.2s 1;
         -webkit-animation: mymove 0.2s 1;
       }
@@ -136,6 +137,7 @@ const iconStyle: Ref<styles.Mstyles> = ref<styles.Mstyles>({
       padding-right: 8px;
       border: none;
       background-color: #f1f2f3;
+      outline: none;
     }
     .nav-search-btn {
       position: absolute;

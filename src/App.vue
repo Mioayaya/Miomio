@@ -15,7 +15,8 @@ import MioHeader from './components/header/MioHeader.vue';
 <style lang="less" scoped>
 @import './common/css/common.less';
 .App {
-  width: 100vw;
+  width: calc(100vw - 20px);
+  box-sizing: border-box;
   .view {
     width: 100%;
     margin-top: @HEADERheight;
