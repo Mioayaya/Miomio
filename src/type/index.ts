@@ -2,5 +2,6 @@
 import * as test from "./interface/test";
 import * as styles from "./interface/styles";
 import * as topNav from "./interface/topNav";
+import * as axiosType from './interface/axios';
 
-export { test, styles, topNav };
+export { test, styles, topNav, axiosType };
